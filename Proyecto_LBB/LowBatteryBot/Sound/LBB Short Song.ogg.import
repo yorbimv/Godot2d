@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/LBB Short Song.ogg-bc9a83e875e7c3280214f850af11fd61.oggstr"
+
+[deps]
+
+source_file="res://Sound/LBB Short Song.ogg"
+dest_files=[ "res://.import/LBB Short Song.ogg-bc9a83e875e7c3280214f850af11fd61.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,15 @@
+Perdón, el proyecto es un desastre pero si has visto mis tutoriales de Godot Engine
+quizás entiendan un poco lo que está pasando.
+
+He comentado creo que todo en inglés. recuerden que soy bilingüe y es mi preferencia cuando programo
+(Gracias por entender ^_^)
+
+
+Honestamente no pienso dar soporte sobre este proyecto a menos que sea muy necesario pero
+probablemente haga un tutorial de como hacer un juego como este.
+
+Como he dicho en el video recuerden que no conozco muy bien Godot Engine y el juego
+probablemente no esté para nada optimizado pero funciona XD (Pero definitivamente no soy bueno en Godot)
+
+
+Eso es todo! :)

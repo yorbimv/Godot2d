@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Socket.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/spr_socket.png" type="Texture" id=2]
+[ext_resource path="res://Sound/next_level.wav" type="AudioStream" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 15.6883, 14.5772 )
+
+[node name="Socket" type="Area2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="NextLevelSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+volume_db = -8.157
+[connection signal="finished" from="NextLevelSound" to="." method="_on_NextLevelSound_finished"]

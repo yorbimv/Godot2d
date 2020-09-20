@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/JuiceUp.wav-f3637ecd64d336fffc429c15d5cc06ce.sample"
+
+[deps]
+
+source_file="res://Sound/JuiceUp.wav"
+dest_files=[ "res://.import/JuiceUp.wav-f3637ecd64d336fffc429c15d5cc06ce.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

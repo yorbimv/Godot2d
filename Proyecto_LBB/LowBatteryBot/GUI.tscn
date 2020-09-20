@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Sprites/spr_bar_bg.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/spr_bar_green.png" type="Texture" id=2]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Canvas" type="CanvasLayer" parent="."]
+
+[node name="Position2D" type="Position2D" parent="Canvas"]
+position = Vector2( 32, 32 )
+
+[node name="BarSprite" type="TextureProgress" parent="Canvas/Position2D"]
+margin_right = 16.0
+margin_bottom = 48.0
+value = 100.0
+texture_under = ExtResource( 1 )
+texture_progress = ExtResource( 2 )

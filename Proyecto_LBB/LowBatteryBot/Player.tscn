@@ -1,0 +1,172 @@
+[gd_scene load_steps=25 format=2]
+
+[ext_resource path="res://Player.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/spr_jump0.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/spr_jump1.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/spr_run0.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/spr_run1.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/spr_run2.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/spr_run3.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/spr_run4.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/spr_run5.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/spr_fall0.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/spr_fall1.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/spr_stand.png" type="Texture" id=12]
+[ext_resource path="res://GUI.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Font/Robotronica.ttf" type="DynamicFontData" id=14]
+[ext_resource path="res://Sprites/spr_battery.png" type="Texture" id=15]
+[ext_resource path="res://Sound/JuiceUp.wav" type="AudioStream" id=16]
+[ext_resource path="res://Sound/Point Collect.wav" type="AudioStream" id=17]
+[ext_resource path="res://Sound/hit.wav" type="AudioStream" id=18]
+[ext_resource path="res://Sound/steps.wav" type="AudioStream" id=19]
+[ext_resource path="res://Sound/jump2.wav" type="AudioStream" id=20]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
+"loop": false,
+"name": "Jump",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "Run",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 10 ), ExtResource( 11 ) ],
+"loop": false,
+"name": "Fall",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ) ],
+"loop": false,
+"name": "Stand",
+"speed": 5.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 12.2117
+height = 39.2756
+
+[sub_resource type="DynamicFont" id=3]
+size = 38
+font_data = ExtResource( 14 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 100
+font_data = ExtResource( 14 )
+
+[node name="Player" type="KinematicBody2D"]
+position = Vector2( -1.05261, 1.54756 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 1 )
+animation = "Stand"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+smoothing_enabled = true
+
+[node name="BatteryTimer" type="Timer" parent="."]
+wait_time = 0.1
+
+[node name="Control" parent="." instance=ExtResource( 13 )]
+editor/display_folded = true
+
+[node name="Position2D" parent="Control/Canvas" index="0"]
+position = Vector2( 55.96, 32 )
+
+[node name="BarSprite" parent="Control/Canvas/Position2D" index="0"]
+tint_under = Color( 0.243137, 0.368627, 0.533333, 1 )
+
+[node name="TextPos" type="Position2D" parent="Control/Canvas" index="1"]
+position = Vector2( 101.22, 37.74 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Label" type="Label" parent="Control/Canvas/TextPos"]
+margin_right = 148.0
+margin_bottom = 29.0
+custom_fonts/font = SubResource( 3 )
+text = "Battery Charge"
+
+[node name="BBiconPOS" type="Position2D" parent="Control/Canvas" index="2"]
+position = Vector2( 44.51, 54.75 )
+rotation = -0.0872665
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Control/Canvas/BBiconPOS"]
+texture = ExtResource( 15 )
+
+[node name="ReadyPosition" type="Position2D" parent="Control/Canvas" index="3"]
+position = Vector2( 515.04, 313.1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="ReadyText" type="Label" parent="Control/Canvas/ReadyPosition"]
+margin_right = 40.0
+margin_bottom = 14.0
+custom_fonts/font = SubResource( 4 )
+text = "Ready!"
+align = 1
+valign = 1
+
+[node name="StartGameTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[node name="HideReadyTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="HitTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="BlinkingTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="BlinkHideShowTimer" type="Timer" parent="."]
+wait_time = 0.1
+
+[node name="EnergySound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 16 )
+volume_db = -9.176
+
+[node name="BatterySound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 17 )
+volume_db = -7.137
+
+[node name="HitSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 18 )
+volume_db = -8.157
+
+[node name="StepsSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 19 )
+volume_db = -9.177
+
+[node name="JumpSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 20 )
+volume_db = -11.216
+[connection signal="timeout" from="BatteryTimer" to="." method="_on_BatteryTimer_timeout"]
+[connection signal="timeout" from="StartGameTimer" to="." method="_on_StartGameTimer_timeout"]
+[connection signal="timeout" from="HideReadyTimer" to="." method="_on_HideReadyTimer_timeout"]
+[connection signal="timeout" from="HitTimer" to="." method="_on_HitTimer_timeout"]
+[connection signal="timeout" from="BlinkingTimer" to="." method="_on_BlinkingTimer_timeout"]
+[connection signal="timeout" from="BlinkHideShowTimer" to="." method="_on_BlinkHideShowTimer_timeout"]
+[connection signal="finished" from="StepsSound" to="." method="_on_StepsSound_finished"]
+
+[editable path="Control"]

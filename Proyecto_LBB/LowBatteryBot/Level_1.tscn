@@ -1,0 +1,64 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://TileSet_BW_recollision.tres" type="TileSet" id=1]
+[ext_resource path="res://Socket.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Sprites/Socket_HowTo.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/How to.png" type="Texture" id=4]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Sprites/BG/Background3.png" type="Texture" id=6]
+[ext_resource path="res://Battery.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Sprites/Battery_howto.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/HowToMusicRestart.png" type="Texture" id=9]
+[ext_resource path="res://TransitionCanvas.tscn" type="PackedScene" id=10]
+
+[node name="Level_2" type="Node"]
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2( 528.777, 359.541 )
+scale = Vector2( 0.5, 0.5 )
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 128, 128 )
+format = 1
+tile_data = PoolIntArray( -655372, 3, 0, -720882, 3, 0, -589836, 3, 0, -655346, 3, 0, -524300, 3, 0, -589810, 3, 0, -458764, 3, 0, -524274, 3, 0, -393228, 3, 0, -458738, 3, 0, -327692, 3, 0, -393202, 3, 0, -262156, 3, 0, -327666, 3, 0, -196620, 3, 0, -262130, 3, 0, -131084, 3, 0, -196594, 3, 0, -65548, 3, 0, -131058, 3, 0, -131057, 1, 0, -131056, 1, 0, -131055, 1, 0, -131054, 1, 0, -131053, 1, 0, -131052, 1, 0, -131051, 1, 0, -131050, 1, 0, -131049, 1, 0, -131048, 1, 0, -131047, 1, 0, -131046, 2, 0, -12, 3, 0, -65511, 3, 0, 65524, 3, 0, 25, 3, 0, 131060, 3, 0, 65561, 3, 0, 65562, 1, 0, 65563, 1, 0, 65564, 1, 0, 65565, 1, 0, 65566, 1, 0, 65567, 1, 0, 65568, 1, 0, 65569, 1, 0, 65570, 1, 0, 65571, 1, 0, 65572, 1, 0, 65573, 1, 0, 65574, 2, 0, 196596, 3, 0, 131076, 0, 0, 131077, 1, 0, 131078, 2, 0, 131109, 3, 0, 262132, 3, 0, 262143, 0, 0, 196608, 1, 0, 196609, 1, 0, 196610, 2, 0, 196613, 3, 0, 196617, 0, 0, 196618, 1, 0, 196619, 1, 0, 196620, 1, 0, 196621, 1, 0, 196622, 2, 0, 196645, 3, 0, 327668, 3, 0, 262149, 3, 0, 262154, 3, 0, 262157, 3, 0, 262181, 3, 0, 393204, 3, 0, 393205, 0, 0, 393206, 1, 0, 393207, 1, 0, 393208, 1, 0, 393209, 1, 0, 393210, 1, 0, 393211, 1, 0, 393212, 1, 0, 393213, 1, 0, 393214, 1, 0, 393215, 1, 0, 327680, 1, 0, 327681, 1, 0, 327682, 1, 0, 327683, 1, 0, 327684, 1, 0, 327685, 1, 0, 327686, 1, 0, 327687, 1, 0, 327688, 1, 0, 327689, 1, 0, 327690, 3, 0, 327693, 3, 0, 327694, 1, 0, 327695, 1, 0, 327696, 1, 0, 327697, 1, 0, 327698, 1, 0, 327699, 1, 0, 327700, 1, 0, 327701, 1, 0, 327702, 1, 0, 327703, 1, 0, 327704, 1, 0, 327705, 1, 0, 327706, 1, 0, 327707, 1, 0, 327708, 1, 0, 327709, 1, 0, 327710, 1, 0, 327711, 1, 0, 327712, 1, 0, 327713, 1, 0, 327714, 1, 0, 327715, 1, 0, 327716, 1, 0, 327717, 3, 0 )
+
+[node name="Socket" parent="." instance=ExtResource( 2 )]
+position = Vector2( 2861.31, 644.083 )
+next_level = "res://World.tscn"
+
+[node name="Socket_HowTo" type="Sprite" parent="."]
+position = Vector2( 2575.5, 579.036 )
+scale = Vector2( 0.559328, 0.559328 )
+texture = ExtResource( 3 )
+
+[node name="HowTo" type="Sprite" parent="."]
+position = Vector2( 136.531, 462.017 )
+scale = Vector2( 0.485807, 0.485807 )
+texture = ExtResource( 4 )
+
+[node name="Player" parent="." instance=ExtResource( 5 )]
+editor/display_folded = true
+position = Vector2( -120.277, 518.174 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Player"]
+
+[node name="Sprite" type="Sprite" parent="Player/ParallaxBackground"]
+texture = ExtResource( 6 )
+offset = Vector2( 512, 200 )
+
+[node name="Battery" parent="." instance=ExtResource( 7 )]
+editor/display_folded = true
+position = Vector2( 1455.7, 651.9 )
+
+[node name="Battery_howto" type="Sprite" parent="Battery"]
+position = Vector2( 145.451, -75.0489 )
+scale = Vector2( 0.378845, 0.378845 )
+texture = ExtResource( 8 )
+
+[node name="HowToMusicRestart" type="Sprite" parent="."]
+position = Vector2( 1901.98, 398.511 )
+scale = Vector2( 0.469528, 0.469528 )
+texture = ExtResource( 9 )
+
+[node name="TransitionCanvas" parent="." instance=ExtResource( 10 )]
+[connection signal="Goal" from="Socket" to="Player" method="_level_complete_goal"]
+[connection signal="Energy" from="Battery" to="Player" method="_get_energy"]
